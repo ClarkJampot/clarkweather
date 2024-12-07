@@ -1,14 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:test_clima_flutter/utilities/constants.dart';
+import 'dart:convert';
 
 class LocationScreen extends StatefulWidget {
-  const LocationScreen({super.key});
+  LocationScreen(this.data, {super.key});
+  String data;
 
   @override
   State<LocationScreen> createState() => _LocationScreenState();
 }
 
 class _LocationScreenState extends State<LocationScreen> {
+
+  double temp = 0;
+  String city = '',info='';
+  int id = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    info = widget.data;
+    updateUI();
+  }
+
+  void updateUI(){
+    temp = jsonDecode(info)['main']['temp'];
+    city = jsonDecode(info)['name'];
+    id = jsonDecode(info)['id'];
+    print(city);
+    print(temp);
+    print(id);
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,3 +100,10 @@ class _LocationScreenState extends State<LocationScreen> {
     );
   }
 }
+
+//temp = jsonDecode(data)['main']['temp'];
+//city = jsonDecode(data)['name'];
+//id = jsonDecode(data)['id'];
+//print(city);
+//print(temp);
+//print(id);
