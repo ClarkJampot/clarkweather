@@ -49,7 +49,7 @@ class _LocationScreenState extends State<LocationScreen> {
 
         // Fetch background image based on weather condition
         Networking networking = Networking();
-        networking.fetchBackgroundImage(weatherModel.getWeatherPrompt(id)).then((url) {
+        networking.fetchBackgroundImage(weatherModel.getWeatherPrompt(id,temp)).then((url) {
           setState(() {
             backgroundUrl = url;
           });

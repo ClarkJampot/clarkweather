@@ -35,23 +35,38 @@ class WeatherModel {
     }
   }
 
-  String getWeatherPrompt(int condition) {
-    if (condition < 300) {
-      return 'thunderstorm with lightning background';
-    } else if (condition < 400) {
-      return 'light drizzle with grey sky background';
-    } else if (condition < 600) {
-      return 'rainy day with puddles background';
-    } else if (condition < 700) {
-      return 'snowy winter landscape background';
-    } else if (condition < 800) {
-      return 'foggy morning background';
-    } else if (condition == 800) {
-      return 'clear blue sky with sun background';
-    } else if (condition <= 804) {
-      return 'partly cloudy sky background';
+  String getWeatherPrompt(int condition, double temp) {
+    String tempDescription;
+    if (temp > 30) {
+      tempDescription = 'a man burning alive in a';
+    } else if (temp > 25) {
+      tempDescription = 'a crowded beach in a';
+    } else if (temp > 20) {
+      tempDescription = 'a man doing a thumbs up in a';
+    } else if (temp > 10) {
+      tempDescription = 'a man wearing a hoodie in a';
+    } else if (temp > 0) {
+      tempDescription = 'a man wearing a heavy jacket in a';
     } else {
-      return 'weather background';
+      tempDescription = 'a man freezing inside ice in a';
+    }
+
+    if (condition < 300) {
+      return '$tempDescription thunderstorm in the background';
+    } else if (condition < 400) {
+      return '$tempDescription light drizzle weather in the background';
+    } else if (condition < 600) {
+      return '$tempDescription rainy day background';
+    } else if (condition < 700) {
+      return '$tempDescription snowy landscape background';
+    } else if (condition < 800) {
+      return '$tempDescription foggy morning background';
+    } else if (condition == 800) {
+      return '$tempDescription clear blue sky with sun background';
+    } else if (condition <= 804) {
+      return '$tempDescription partly cloudy sky background';
+    } else {
+      return '$tempDescription weather background';
     }
   }
 }
