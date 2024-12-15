@@ -38,17 +38,17 @@ class WeatherModel {
   String getWeatherPrompt(int condition, double temp) {
     String tempDescription;
     if (temp > 30) {
-      tempDescription = 'a man burning alive in a';
+      tempDescription = 'a screaming man burning alive in a';
     } else if (temp > 25) {
       tempDescription = 'a crowded beach in a';
     } else if (temp > 20) {
-      tempDescription = 'a man doing a thumbs up in a';
+      tempDescription = 'a man wearing a t-shirt sitting on a bench while feeding birds in the park in a';
     } else if (temp > 10) {
-      tempDescription = 'a man wearing a hoodie in a';
+      tempDescription = 'a man wearing a hoodie sitting on a ledge in a';
     } else if (temp > 0) {
-      tempDescription = 'a man wearing a heavy jacket in a';
+      tempDescription = 'a man wearing a heavy jacket walking on the park in a';
     } else {
-      tempDescription = 'a man freezing inside ice in a';
+      tempDescription = 'a man freezing in ice in a';
     }
 
     if (condition < 300) {
